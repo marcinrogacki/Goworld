@@ -4,14 +4,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ViewAnimator;
 import android.view.MotionEvent;
+import android.widget.TextView;
 
 import com.github.pwittchen.swipe.library.Swipe;
 import com.github.pwittchen.swipe.library.SwipeListener;
+
+import io.github.marcinrogacki.goworld.Player;
 
 public class MainActivity extends AppCompatActivity {
 
     ViewAnimator viewAnimator;
     private Swipe swipe;
+    Player player;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,8 +24,10 @@ public class MainActivity extends AppCompatActivity {
         viewAnimator = (ViewAnimator)findViewById(R.id.viewanimator);
 
         swipe = new Swipe(70, 300);
-        SwipeListener otls = createSwipeListener();
-        swipe.setListener(otls);
+        SwipeListener swipeListener = createSwipeListener();
+        swipe.setListener(swipeListener);
+        player = new Player();
+        updateScreens();
     }
 
     @Override
@@ -37,6 +43,8 @@ public class MainActivity extends AppCompatActivity {
 
             @Override public void onSwipedLeft(final MotionEvent event) {
               viewAnimator.showPrevious();
+              player.reduceLife();
+              updateScreens();
             }
 
             @Override public void onSwipingRight(final MotionEvent event) {
@@ -44,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
 
             @Override public void onSwipedRight(final MotionEvent event) {
               viewAnimator.showNext();
+              player.reduceLife();
+              updateScreens();
             }
 
             @Override public void onSwipingUp(final MotionEvent event) {
@@ -58,5 +68,12 @@ public class MainActivity extends AppCompatActivity {
             @Override public void onSwipedDown(final MotionEvent event) {
             }
         };
+    }
+
+    private void updateScreens() {
+      TextView stats = (TextView)findViewById(R.id.stats);
+      stats.setText(String.valueOf(player.getLife()));
+      TextView view = (TextView)findViewById(R.id.view);
+      view.setText(player.getLifeText());
     }
 }
