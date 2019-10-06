@@ -1,18 +1,41 @@
 package io.github.marcinrogacki.goworld;
 
-public class Player {
-    private int life = 100;
+import java.util.Random;
 
-    public void reduceLife()
+public class Character {
+    private int life = 100;
+    private int damage = 10;
+
+    public void attack(Character subject)
     {
-        if (life > 0) {
-            life--;
+        subject.takeDamage(getDamage());
+    }
+
+    public void takeDamage(int amount)
+    {
+        life = life - amount;
+        if (life < 0) {
+            life = 0;
+        }
+    }
+
+    public void heal()
+    {
+        life = life + getDamage() * 2;
+        if (life > 100) {
+            life = 100;
         }
     }
 
     public int getLife()
     {
         return life;
+    }
+
+    public int getDamage()
+    {
+        Random rand = new Random();
+        return rand.nextInt(10);
     }
 
     public String getLifeText()

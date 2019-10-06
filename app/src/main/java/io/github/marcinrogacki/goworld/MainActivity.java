@@ -9,13 +9,15 @@ import android.widget.TextView;
 import com.github.pwittchen.swipe.library.Swipe;
 import com.github.pwittchen.swipe.library.SwipeListener;
 
-import io.github.marcinrogacki.goworld.Player;
+import io.github.marcinrogacki.goworld.Character;
+import io.github.marcinrogacki.goworld.Battle;
 
 public class MainActivity extends AppCompatActivity {
 
     ViewAnimator viewAnimator;
     private Swipe swipe;
-    Player player;
+    private Character player;
+    private Character monster;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +28,8 @@ public class MainActivity extends AppCompatActivity {
         swipe = new Swipe(70, 300);
         SwipeListener swipeListener = createSwipeListener();
         swipe.setListener(swipeListener);
-        player = new Player();
+        player = new Character();
+        monster = new Character();
         updateScreens();
     }
 
@@ -42,8 +45,8 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override public void onSwipedLeft(final MotionEvent event) {
-              viewAnimator.showPrevious();
-              player.reduceLife();
+              player.heal();
+              monster.heal();
               updateScreens();
             }
 
@@ -51,8 +54,8 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override public void onSwipedRight(final MotionEvent event) {
-              viewAnimator.showNext();
-              player.reduceLife();
+              player.attack(monster);
+              monster.attack(player);
               updateScreens();
             }
 
@@ -71,9 +74,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void updateScreens() {
-      TextView stats = (TextView)findViewById(R.id.stats);
-      stats.setText(String.valueOf(player.getLife()));
-      TextView view = (TextView)findViewById(R.id.view);
-      view.setText(player.getLifeText());
+        TextView playerView = (TextView)findViewById(R.id.player);
+        playerView.setText(String.valueOf("Player: " + player.getLife()));
+
+        TextView monsterView = (TextView)findViewById(R.id.monster);
+        monsterView.setText(String.valueOf("Monster: " + monster.getLife()));
     }
 }
