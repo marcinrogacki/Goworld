@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.widget.ViewAnimator;
 import android.view.MotionEvent;
 import android.widget.TextView;
+import android.widget.ProgressBar;
 
 import com.github.pwittchen.swipe.library.Swipe;
 import com.github.pwittchen.swipe.library.SwipeListener;
@@ -76,8 +77,13 @@ public class MainActivity extends AppCompatActivity {
     private void updateScreens() {
         TextView playerView = (TextView)findViewById(R.id.player);
         playerView.setText(String.valueOf("Player: " + player.getLife()));
+        ProgressBar playerBar = (ProgressBar)findViewById(R.id.playerBar);
+        playerBar.setProgress(player.getLife());
 
         TextView monsterView = (TextView)findViewById(R.id.monster);
         monsterView.setText(String.valueOf("Monster: " + monster.getLife()));
+        ProgressBar monsterBar = (ProgressBar)findViewById(R.id.monsterBar);
+        monsterBar.setProgress(monster.getLife());
+
     }
 }

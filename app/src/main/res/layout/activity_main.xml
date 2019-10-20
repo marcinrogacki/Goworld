@@ -7,11 +7,23 @@
         android:id="@+id/player"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+    <ProgressBar
+          android:id="@+id/playerBar"
+          style="@android:style/Widget.ProgressBar.Horizontal"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:progress="100"/>
 
     <TextView
         android:id="@+id/monster"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+    <ProgressBar
+          android:id="@+id/monsterBar"
+          style="@android:style/Widget.ProgressBar.Horizontal"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:progress="100"/>
 
     <ViewAnimator
         android:id="@+id/viewanimator"
