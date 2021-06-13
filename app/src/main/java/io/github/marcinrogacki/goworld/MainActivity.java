@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
         playerBar.setProgress(player.getLife());
 
         TextView monsterView = (TextView)findViewById(R.id.monster);
-        monsterView.setText(String.valueOf("Monster: " + monster.getLife()));
+        monsterView.setText(String.valueOf("Monster lvl1: " + monster.getLife()));
         ProgressBar monsterBar = (ProgressBar)findViewById(R.id.monsterBar);
         monsterBar.setProgress(monster.getLife());
 

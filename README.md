@@ -1,6 +1,7 @@
 # Requirements
 
 * OpenJDK 8
+* Linux package (Arch) `android-udev`
 * Enable Developer mode on phone
 * Enable `USB debugging` on phone
 
