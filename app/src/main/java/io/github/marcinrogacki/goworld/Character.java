@@ -1,10 +1,16 @@
 package io.github.marcinrogacki.goworld;
 
 import java.util.Random;
+import io.github.marcinrogacki.goworld.Item;
 
 public class Character {
+    private Item[] items;
     private int life = 100;
     private int damage = 10;
+
+    public void addItem(Item item) {
+        // items.push(item);
+    }
 
     public void attack(Character subject)
     {

@@ -11,7 +11,7 @@ import com.github.pwittchen.swipe.library.Swipe;
 import com.github.pwittchen.swipe.library.SwipeListener;
 
 import io.github.marcinrogacki.goworld.Character;
-import io.github.marcinrogacki.goworld.Battle;
+import io.github.marcinrogacki.goworld.Item;
 
 public class MainActivity extends AppCompatActivity {
 

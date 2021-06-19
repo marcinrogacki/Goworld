@@ -1,5 +1,4 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
-
 buildscript {
     repositories {
         jcenter()
@@ -11,6 +10,14 @@ buildscript {
         // in the individual module build.gradle files
     }
 }
+
+
+// plugins {
+//     id "org.gradle.java"
+//     id "com.scuilion.syntastic" version "0.3.9"
+// }
+
+
 
 allprojects {
     repositories {

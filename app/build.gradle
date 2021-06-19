@@ -29,4 +29,3 @@ dependencies {
     compile 'com.github.pwittchen:swipe:0.1.0'
     testCompile 'junit:junit:4.12'
 }
-
