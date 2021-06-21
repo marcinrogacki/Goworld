@@ -1,6 +1,5 @@
 package io.github.marcinrogacki.goworld;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ViewAnimator;
 import android.view.MotionEvent;
@@ -13,7 +12,9 @@ import com.github.pwittchen.swipe.library.SwipeListener;
 import io.github.marcinrogacki.goworld.Character;
 import io.github.marcinrogacki.goworld.Item;
 
-public class MainActivity extends AppCompatActivity {
+import androidx.activity.ComponentActivity;
+
+public class MainActivity extends ComponentActivity {
 
     ViewAnimator viewAnimator;
     private Swipe swipe;
@@ -76,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void updateScreens() {
         TextView playerView = (TextView)findViewById(R.id.player);
-        playerView.setText(String.valueOf("Player: " + player.getLife()));
+        playerView.setText(String.valueOf("Player lvl1: " + player.getLife()));
         ProgressBar playerBar = (ProgressBar)findViewById(R.id.playerBar);
         playerBar.setProgress(player.getLife());
 

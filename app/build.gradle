@@ -1,12 +1,20 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion "26.0.0"
+    compileSdkVersion 30
     defaultConfig {
         applicationId "io.github.marcinrogacki.goworld"
         minSdkVersion 15
-        targetSdkVersion 26
+        // "When you upload an APK, it needs to meet Google Play’s target API
+        // level requirements. New apps and app updates must target Android 10
+        // (API level 29)"
+        // https://developer.android.com/distribute/best-practices/develop/target-sdk
+        //
+        // Updating to 30 due lint warning: "Not targeting the latest versions
+        // of Android; compatibility modes apply. Consider testing and updating
+        // this version. Consult the android.os.Build.VERSION_CODES javadoc for
+        // details."
+        targetSdkVersion 30
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -20,12 +28,12 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:26.+'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile 'com.github.pwittchen:swipe:0.1.0'
-    testCompile 'junit:junit:4.12'
+    runtimeOnly 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.activity:activity:1.2.3'
+    implementation 'com.github.pwittchen:swipe:0.1.0'
+    testImplementation 'junit:junit:4.12'
 }

@@ -1,23 +1,20 @@
 # Requirements
 
-* OpenJDK 8
+* OpenJDK 11
 * Linux package (Arch) `android-udev` which allow establish connection to device via _adb_
 * Enable Developer mode on phone
 * Enable `USB debugging` on phone
 
 # Build
 
-Build `./gradlew build`\
-Build and send to phone `./gradlew installDebug`
+* Build `./gradlew build`
+* Build and send to phone `./gradlew installDebug`
+* Build form command line tutorial https://developer.android.com/studio/build/building-cmdline
 
-# Vim support
+# Useful links
 
-* Install Syntastic https://github.com/vim-syntastic/syntastic
-* Set class path
-    * `export CLASSPATH=/opt/android-sdk/platforms/android-26/android.jar` version must fit to _compileSdkVersion_ from _app/build.gradle_
-    * `export CLASSPATH=$CLASSPATH:./app/src/main/java/` classes created for project
-    * Example export of dependencies where version must fit to versions imported in _gradle.build_
-        * `export CLASSPATH=$CLASSPATH:/opt/android-sdk/extras/android/m2repository/com/android/support/appcompat-v7/26.0.0-alpha1/appcompat-v7-26.0.0-alpha1-sources.jar`
+* Configure project using Gradle https://developer.android.com/studio/build
+* Android Gradle plugin (AGP) https://developer.android.com/studio/releases/gradle-plugin
 
 # Troubleshooting
 
@@ -54,3 +51,12 @@ List of devices attached
 ```
 
 Install `android-udev` (Arch Linux package)
+
+# Vim support
+
+* Install Syntastic https://github.com/vim-syntastic/syntastic
+* Set class path
+    * `export CLASSPATH=/opt/android-sdk/platforms/android-26/android.jar` version must fit to _compileSdkVersion_ from _app/build.gradle_
+    * `export CLASSPATH=$CLASSPATH:./app/src/main/java/` classes created for project
+    * Example export of dependencies where version must fit to versions imported in _gradle.build_
+        * `export CLASSPATH=$CLASSPATH:/opt/android-sdk/extras/android/m2repository/com/android/support/appcompat-v7/26.0.0-alpha1/appcompat-v7-26.0.0-alpha1-sources.jar`

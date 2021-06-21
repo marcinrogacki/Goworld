@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="io.github.marcinrogacki.goworld">
+        package="io.github.marcinrogacki.goworld">
+    <!--
+    Changes information:
 
-    <application android:allowBackup="true" android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name" android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true" android:theme="@style/AppTheme">
+    android:allowBackup="false"
+    Lint used to complain about missing backup info
+    "AllowBackup/FullBackupContent Problems". Currently disabled since I don't
+    know I need it.
+    -->
+    <application
+        android:allowBackup="false" android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        >
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
