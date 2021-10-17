@@ -20,7 +20,7 @@
 
 **Could not determine java version from '15.0.2'.**
 
-Downgrade Java version to OpenJDK 8.
+Downgrade Java version to OpenJDK 11.
 
 **Exception while marshalling /opt/android-sdk/build-tools/30.0.3/package.xml. Probably the SDK is read-only**
 
@@ -54,9 +54,13 @@ Install `android-udev` (Arch Linux package)
 
 # Vim support
 
-* Install Syntastic https://github.com/vim-syntastic/syntastic
-* Set class path
-    * `export CLASSPATH=/opt/android-sdk/platforms/android-26/android.jar` version must fit to _compileSdkVersion_ from _app/build.gradle_
-    * `export CLASSPATH=$CLASSPATH:./app/src/main/java/` classes created for project
-    * Example export of dependencies where version must fit to versions imported in _gradle.build_
-        * `export CLASSPATH=$CLASSPATH:/opt/android-sdk/extras/android/m2repository/com/android/support/appcompat-v7/26.0.0-alpha1/appcompat-v7-26.0.0-alpha1-sources.jar`
+* Option 1
+    * Install Syntastic https://github.com/vim-syntastic/syntastic
+        * Plugin will provide syntax checker
+        * Enable javac support in _.vimrc_: `let g:syntastic_java_checkers=['javac']`
+    * Install vim-android https://github.com/hsanson/vim-android.git
+        * Plugin will export CLASSPATH variable for Syntastic which will allow inspect imports from Android, 3rd party libs and project itself
+        * Set in _.vimrc_ a path to Android SDK: `let g:android_sdk_path = "/opt/android-sdk"`
+* Option 2
+    * Install YCM https://github.com/ycm-core/YouCompleteMe (Arch Linux: https://wiki.archlinux.org/title/Vim/YouCompleteMe)
+    * Install jdtls https://github.com/eclipse/eclipse.jdt.ls (Arch Linux: https://aur.archlinux.org/packages/jdtls/)
