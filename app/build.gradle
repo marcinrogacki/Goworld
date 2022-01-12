@@ -1,7 +1,8 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 31
     defaultConfig {
         applicationId "io.github.marcinrogacki.goworld"
         minSdkVersion 15
@@ -36,4 +37,9 @@ dependencies {
     implementation 'androidx.activity:activity:1.2.3'
     implementation 'com.github.pwittchen:swipe:0.1.0'
     testImplementation 'junit:junit:4.12'
+    implementation "androidx.core:core-ktx:+"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}
+repositories {
+    mavenCentral()
 }
