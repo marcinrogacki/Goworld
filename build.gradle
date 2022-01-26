@@ -1,6 +1,5 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
-    ext.kotlin_version = '1.6.10'
     repositories {
         // "Gradle 4.1 and higher include support for Google's Maven repo using
         // the google() method. And you need to include this repo to download
@@ -17,15 +16,7 @@ buildscript {
         // Gralde 6.7.1 => AGP 4.2.0. Tutorial and versions reference:
         // https://developer.android.com/studio/releases/gradle-plugin
         classpath 'com.android.tools.build:gradle:4.2.0'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
-}
-
-
-plugins {
-    // "A gradle plugin for creating the .syntastic_javac_config file used by
-    // syntastic in VIM" https://github.com/Scuilion/gradle-syntastic-plugin
-    id "com.scuilion.syntastic" version "0.3.9"
 }
 
 allprojects {

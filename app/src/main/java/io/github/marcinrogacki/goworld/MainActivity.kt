@@ -11,22 +11,19 @@ import com.github.pwittchen.swipe.library.Swipe
 import com.github.pwittchen.swipe.library.SwipeListener
 
 class MainActivity : ComponentActivity() {
-    private var viewAnimator: ViewAnimator? = null
-    private var swipe: Swipe? = null
+    private var viewAnimator: ViewAnimator? = findViewById<View>(R.id.viewanimator) as ViewAnimator
+    private var swipe: Swipe = Swipe(70, 300)
     private var player: Character = Character()
     private var monster: Character = Character()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        viewAnimator = findViewById<View>(R.id.viewanimator) as ViewAnimator
-        swipe = Swipe(70, 300)
-        val swipeListener: SwipeListener = createSwipeListener()
-        swipe!!.setListener(swipeListener)
+        swipe.setListener(createSwipeListener())
         updateScreens()
     }
 
     override fun dispatchTouchEvent(event: MotionEvent): Boolean {
-        swipe!!.dispatchTouchEvent(event)
+        swipe.dispatchTouchEvent(event)
         return super.dispatchTouchEvent(event)
     }
 
@@ -49,7 +46,7 @@ class MainActivity : ComponentActivity() {
             override fun onSwipingUp(event: MotionEvent) {}
             override fun onSwipedUp(event: MotionEvent) {}
             override fun onSwipingDown(event: MotionEvent) {}
-            override fun onSwipedDown(event: MotionEvent) {}
+        override fun onSwipedDown(event: MotionEvent) {}
         }
     }
 
