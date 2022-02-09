@@ -13,7 +13,6 @@ android {
         targetSdkVersion 31
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
@@ -27,8 +26,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     runtimeOnly 'androidx.appcompat:appcompat:1.4.1'
     implementation 'androidx.activity:activity:1.4.0'
-    implementation 'com.github.pwittchen:swipe:0.1.0'
-    testImplementation 'junit:junit:4.12'
+    implementation 'com.github.pwittchen:swipe-rx2:0.3.0'
     implementation "androidx.core:core-ktx:1.7.0"
 }
 repositories {
