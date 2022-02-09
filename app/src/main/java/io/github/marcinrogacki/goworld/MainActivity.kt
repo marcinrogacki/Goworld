@@ -9,6 +9,7 @@ import android.widget.ViewAnimator
 import androidx.activity.ComponentActivity
 import com.github.pwittchen.swipe.library.Swipe
 import com.github.pwittchen.swipe.library.SwipeListener
+import kotlin.random.Random
 
 class MainActivity : ComponentActivity() {
     private var viewAnimator: ViewAnimator? = findViewById<View>(R.id.viewanimator) as ViewAnimator
@@ -32,14 +33,14 @@ class MainActivity : ComponentActivity() {
             override fun onSwipingLeft(event: MotionEvent) {}
             override fun onSwipedLeft(event: MotionEvent) {
                 player.heal()
-                monster.heal()
+                if(Random.nextBoolean()) monster.heal() else monster.attack(player)
                 updateScreens()
             }
 
             override fun onSwipingRight(event: MotionEvent) {}
             override fun onSwipedRight(event: MotionEvent) {
                 player.attack(monster)
-                monster.attack(player)
+                if(Random.nextBoolean()) monster.heal() else monster.attack(player)
                 updateScreens()
             }
 

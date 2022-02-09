@@ -42,3 +42,4 @@ List of devices attached
       again, accept authorization prompt on phone
     * Works only when adb is started as root (adding user to _adbusers_ group 
       doesn't help)
+    * USB cable might be not compatible with _debugging mode_ (lack of pin)
