@@ -16,7 +16,7 @@
         >
 
     <!-- android:exported https://developer.android.com/guide/topics/manifest/activity-element#exported -->
-    <activity android:name=".MainActivity" android:exported="false">
+    <activity android:name=".MainActivity" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

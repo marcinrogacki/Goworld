@@ -15,7 +15,8 @@ buildscript {
         // to building Android apps". Version is implied by Gradle version:
         // Gralde 6.7.1 => AGP 4.2.0. Tutorial and versions reference:
         // https://developer.android.com/studio/releases/gradle-plugin
-        classpath 'com.android.tools.build:gradle:4.2.0'
+        // Update gradlew command: ./gradlew wrapper --gradle-version 7.2
+        classpath 'com.android.tools.build:gradle:7.1.1'
     }
 }
 
