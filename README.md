@@ -15,6 +15,7 @@
 
 * Configure project using Gradle https://developer.android.com/studio/build
 * Android Gradle plugin (AGP) https://developer.android.com/studio/releases/gradle-plugin
+* Configure Wireless Debugging https://developer.android.com/studio/command-line/adb#wireless
 
 # Vim support
 

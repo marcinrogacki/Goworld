@@ -43,3 +43,24 @@ List of devices attached
     * Works only when adb is started as root (adding user to _adbusers_ group 
       doesn't help)
     * USB cable might be not compatible with _debugging mode_ (lack of pin)
+    * Restart configuration
+        * Kill server `adb kill-server`
+        * Revoke USB debugging authorizations on device
+        * Turn off/on USB debugging on phone
+        * Run again `adb devices`
+
+## App crashes on startup
+
+Check logs. Command `adb logcat AndroidRuntime:V *:S` will show all apps which
+crashed at runtime. More about logs https://developer.android.com/studio/command-line/logcat
+
+Ensure kotlin-android plugin is loaded
+
+```
+// build.gradle
+dependencies {
+    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.10"
+}
+// app/build.gradle
+apply plugin: 'kotlin-android'
+```

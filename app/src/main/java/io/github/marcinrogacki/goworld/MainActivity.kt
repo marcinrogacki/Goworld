@@ -5,14 +5,12 @@ import android.view.MotionEvent
 import android.view.View
 import android.widget.ProgressBar
 import android.widget.TextView
-import android.widget.ViewAnimator
 import androidx.activity.ComponentActivity
-import com.github.pwittchen.swipe.library.Swipe
-import com.github.pwittchen.swipe.library.SwipeListener
+import com.github.pwittchen.swipe.library.rx2.Swipe
+import com.github.pwittchen.swipe.library.rx2.SwipeListener
 import kotlin.random.Random
 
 class MainActivity : ComponentActivity() {
-    private var viewAnimator: ViewAnimator? = findViewById<View>(R.id.viewanimator) as ViewAnimator
     private var swipe: Swipe = Swipe(70, 300)
     private var player: Character = Character()
     private var monster: Character = Character()
@@ -31,23 +29,25 @@ class MainActivity : ComponentActivity() {
     private fun createSwipeListener(): SwipeListener {
         return object : SwipeListener {
             override fun onSwipingLeft(event: MotionEvent) {}
-            override fun onSwipedLeft(event: MotionEvent) {
+            override fun onSwipedLeft(event: MotionEvent): Boolean {
                 player.heal()
                 if(Random.nextBoolean()) monster.heal() else monster.attack(player)
                 updateScreens()
+                return true
             }
 
             override fun onSwipingRight(event: MotionEvent) {}
-            override fun onSwipedRight(event: MotionEvent) {
+            override fun onSwipedRight(event: MotionEvent): Boolean {
                 player.attack(monster)
                 if(Random.nextBoolean()) monster.heal() else monster.attack(player)
                 updateScreens()
+                return true
             }
 
             override fun onSwipingUp(event: MotionEvent) {}
-            override fun onSwipedUp(event: MotionEvent) {}
+            override fun onSwipedUp(event: MotionEvent): Boolean { return true }
             override fun onSwipingDown(event: MotionEvent) {}
-        override fun onSwipedDown(event: MotionEvent) {}
+            override fun onSwipedDown(event: MotionEvent): Boolean { return true }
         }
     }
 
