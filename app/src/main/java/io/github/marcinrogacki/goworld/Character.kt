@@ -5,10 +5,17 @@ import java.util.*
 class Character {
     var life = 100
         private set
+
     private val damage: Int
         get() {
-            val rand = Random()
-            return rand.nextInt(10)
+            // Range: 0-9
+            return Random().nextInt(10)
+        }
+
+    private val aid: Int
+        get() {
+            // Range: 2-6
+            return Random().nextInt(4) + 2
         }
 
     fun attack(subject: Character) {
@@ -23,7 +30,7 @@ class Character {
     }
 
     fun heal() {
-        life += damage * 2
+        life += aid
         if (life > 100) {
             life = 100
         }

@@ -53,12 +53,12 @@ class MainActivity : ComponentActivity() {
 
     private fun updateScreens() {
         val playerView: TextView = findViewById<View>(R.id.player) as TextView
-        val playerTxt = "Player lvl1: " + player.lifeText
+        val playerTxt = "Marcin: " + player.lifeText
         playerView.text = playerTxt
         val playerBar: ProgressBar = findViewById<View>(R.id.playerBar) as ProgressBar
         playerBar.progress = player.life
         val monsterView: TextView = findViewById<View>(R.id.monster) as TextView
-        val monsterTxt = "Monster lvl1: " + monster.lifeText
+        val monsterTxt = "Rat: " + monster.lifeText
         monsterView.text = monsterTxt
         val monsterBar: ProgressBar = findViewById<View>(R.id.monsterBar) as ProgressBar
         monsterBar.progress = monster.life
